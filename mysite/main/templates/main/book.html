@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+
+    {% for i in book_list %}
+        {% for j in i.book_author.all %}
+            <h4>{{ j.name }}</h4>
+            <a href="{% url 'home_detail' j.id %}"><img src="{{ j.img.url }}" width="200px" alt=""></a>
+            <h5>{{ j.ganre }}</h5>
+            <p>{{ j.price }}</p>
+        {% endfor %}
+    {% endfor %}
+
+{% endblock %}
